@@ -7,10 +7,10 @@ import UsageGuideBlock from './components/UsageGuideBlock';
 function App() {
   return (
     <div className="App">
-      <PricingBlock />
-      {/* <IntroductionBlock />
-      <InstallationGuideBlock />
-      <UsageGuideBlock /> */}
+      {/* <PricingBlock /> */}
+      <IntroductionBlock />
+        {/* <InstallationGuideBlock />
+        <UsageGuideBlock /> */}
     </div>
   );
 }

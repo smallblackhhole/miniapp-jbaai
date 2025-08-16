@@ -1,0 +1,542 @@
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+h1 {
+    animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 30px;
+    font-weight: 800;
+    color: #15156e;
+    text-align: center;
+    letter-spacing: 0.02em;
+    position: relative;
+    transition: color 0.2s;
+}
+
+
+h1::after {
+    content: "";
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 90px;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #2a57ca 0%, #a3dbe8 100%);
+    opacity: 0.7;
+    transition: width 0.3s, background 0.3s;
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 1.6rem;
+        padding: 0 8px;
+        text-align: center;
+    }
+
+    .container-detail {
+        width: 98vw;
+    }
+
+    .container-about {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 18px 4vw;
+    }
+
+    .aboutus-image {
+        width: 100%;
+        height: auto;
+        max-width: 320px;
+    }
+
+    .aboutus-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .healthy-care-image {
+        width: 98vw;
+        max-width: 340px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .tutorial-install-video-wrapper {
+        max-width: 100vw;
+        border-radius: 10px;
+    }
+
+    .tutorial-install-quote {
+        font-size: 15px;
+        max-width: 98vw;
+        margin-top: 16px;
+        padding: 0 2vw;
+    }
+
+    .detail-app-section {
+        padding: 32px 0 24px 0;
+    }
+
+    .detail-app-card {
+        width: 95vw;
+        min-width: unset;
+        max-width: 340px;
+        padding: 18px 8px 16px 8px;
+    }
+
+    .carousel-list li {
+        height: auto;
+        min-height: 320px;
+    }
+
+    hr.style-two {
+        width: 90vw;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+}
+
+* {
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #948c8c;
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .aboutus-title {
+        font-size: 24px;
+    }
+
+    .aboutus-content {
+        font-size: 14px;
+    }
+
+    .detail-app-card-title {
+        font-size: 18px;
+    }
+
+    .detail-app-card-desc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .aboutus-title {
+        font-size: 18px;
+    }
+
+    .aboutus-content {
+        font-size: 12px;
+    }
+
+    .detail-app-card-title {
+        font-size: 15px;
+    }
+
+    .detail-app-card-desc {
+        font-size: 12px;
+    }
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.healthy-care-image {
+    width: 80%;
+    height: auto;
+}
+
+/* About us */
+.container-about {
+    display: flex;
+    justify-content: flex-start;
+    background: #fff;
+    padding: 40px 32px;
+    margin: 40px auto 0 auto;
+    max-width: 90%;
+    gap: 80px;
+}
+
+.aboutus-image {
+    width: 600px;
+    height: 460px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+.container-detail {
+    width: 70%;
+    justify-content: center;
+    margin: auto;
+    line-height: 2;
+}
+
+.aboutus-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.aboutus-label {
+    color: #6c7a89;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.aboutus-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #052575;
+    line-height: 1.1;
+}
+
+.aboutus-content {
+    font-size: 16px;
+    color: #333;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 900px) {
+    .aboutus-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .aboutus-title {
+        font-size: 24px;
+    }
+
+    .aboutus-content {
+        font-size: 14px;
+    }
+
+    .container-about {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 18px 4vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .aboutus-image {
+        width: 99vw;
+        max-width: 99vw;
+        height: auto;
+    }
+
+    .aboutus-title {
+        font-size: 18px;
+    }
+
+    .aboutus-content {
+        font-size: 12px;
+    }
+
+    .container-about {
+        padding: 10px 2vw;
+        gap: 12px;
+    }
+}
+
+/* Detail App Section */
+.detail-app-cards {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+
+.carousel-list li:hover .detail-app-card {
+    transform: translateY(-16px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.36);
+}
+
+.detail-app-card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 32px 24px 24px 24px;
+    width: 320px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.detail-app-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.detail-app-card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+    .detail-app-card-img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .detail-app-card-img {
+        height: 260px;
+    }
+}
+
+.detail-app-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Responsive font-size and card width for DetailApp */
+@media (max-width: 900px) {
+    .detail-app-card-title {
+        font-size: 18px;
+    }
+
+    .detail-app-card {
+        width: 98vw;
+        max-width: 420px;
+        min-width: unset;
+        padding: 18px 8px 16px 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .detail-app-card-title {
+        font-size: 15px;
+    }
+
+    .detail-app-card-desc {
+        font-size: 12px;
+    }
+
+    .detail-app-card {
+        width: 99vw;
+        max-width: 99vw;
+        min-width: unset;
+        padding: 10px 2vw 10px 2vw;
+    }
+}
+
+.detail-app-card-desc {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .detail-app-card-desc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .detail-app-card-desc {
+        font-size: 12px;
+    }
+}
+
+.detail-app-btn-wrap {
+    margin-top: 12px;
+}
+
+.detail-app-btn {
+    background: #fff;
+    color: #222;
+    border: 2px solid #d6bfc2;
+    border-radius: 32px;
+    padding: 12px 36px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.detail-app-btn:hover {
+    background: #d6bfc2;
+    color: #fff;
+    border-color: #d6bfc2;
+}
+
+@media (max-width: 1100px) {
+    .detail-app-cards {
+        gap: 16px;
+    }
+
+    .detail-app-card {
+        width: 280px;
+        padding: 24px 12px 18px 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .detail-app-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.carousel-list {
+    display: flex;
+    gap: 3vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    height: auto;
+}
+
+.carousel-list li {
+    list-style-type: none;
+    flex: 0 0 30%;
+    height: 500px;
+    scroll-snap-align: start;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.dot.active {
+    background-color: black;
+}
+
+@media (max-width: 1024px) {
+    .carousel-list li {
+        flex: 0 0 50%;
+        max-width: 50%;
+        scroll-snap-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-list li {
+        flex: 0 0 100%;
+        max-width: 100%;
+        scroll-snap-align: center;
+    }
+}
+
+/* Tutorial Install App Section */
+.tutorial-install-app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 48px 0;
+}
+
+.tutorial-install-video-wrapper {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    background: #fff;
+}
+
+.tutorial-install-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorial-install-quote {
+    margin-top: 16px;
+    text-align: center;
+    color: #222;
+    max-width: 700px;
+}
+
+@media (max-width: 900px) {
+    .tutorial-install-video-wrapper {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .tutorial-install-quote {
+        max-width: 95vw;
+        margin-top: 24px;
+    }
+}
