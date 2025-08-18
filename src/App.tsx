@@ -1,8 +1,5 @@
-import './styles/App.css';
-import PricingBlock from './components/PricingBlock';
 import IntroductionBlock from './components/IntroductionBlock';
-import InstallationGuideBlock from './components/InstallationGuideBlock';
-import UsageGuideBlock from './components/UsageGuideBlock';
+import PricingBlock from './components/PricingBlock';
 
 function App() {
   return (
@@ -11,6 +8,7 @@ function App() {
       <IntroductionBlock />
         {/* <InstallationGuideBlock />
         <UsageGuideBlock /> */}
+      <PricingBlock />
     </div>
   );
 }

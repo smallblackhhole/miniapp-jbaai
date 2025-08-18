@@ -1,142 +1,102 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import '../styles/PricingStyles.css';
 
-const packagesData = {
-  standard: [
-    {
-      id: 's30',
-      name: 'Basic Care 30',
-      price: '$7.66',
-      duration: '30 day',
-      description: 'Gói Standard trong vòng 1 tháng. Với 9 chỉ số sinh học cơ bản, gói này là lựa chọn lý tưởng cho những ai muốn bắt đầu hành trình theo dõi sức khỏe.',
-      features: [
-        'Huyết áp: Theo dõi áp lực máu',
-        'Nhịp tim: Giúp bạn nắm bắt tần số hoạt động của trái tim.',
-        'HRV (Biến thiên nhịp tim)',
-      ],
-    },
-    {
-      id: 's180',
-      name: 'Basic Care 180',
-      price: '$45.96',
-      duration: '30 day',
-      description: 'Gói Standard trong vòng 6 tháng. Đặc biệt để bạn có cái nhìn nhanh chóng và toàn diện về các chỉ số sức khỏe quan trọng.',
-      features: [
-        'Tất cả tính năng của Gói 30 ngày',
-        'Mức độ căng thẳng: Quản lý stress',
-        'SpO2 (Độ bão hòa oxy trong máu)',
-      ],
-    },
-  ],
-  premium: [
-    {
-      id: 'p30',
-      name: 'Premium Care 30',
-      price: '$9.57',
-      duration: '30 day',
-      description: 'Gói Premium là giải pháp tối ưu dành cho những ai nghiêm túc trong việc theo dõi và cải thiện sức khỏe một cách chủ động trong vòng 1 tháng.',
-      features: [
-        'Bao gồm toàn bộ Gói Standard',
-        'So sánh chuyên sâu, giúp bạn đánh giá chính xác hơn về nguy cơ tim mạch.',
-      ],
-    },
-    {
-      id: 'p180',
-      name: 'Premium Care 180',
-      price: '$57.42',
-      duration: '180 day',
-      description: 'Định hướng Tương lai Khỏe Mạnh – Gói Premium là giải pháp tối ưu dành cho những ai nghiêm túc trong việc theo dõi và cải thiện sức khỏe.',
-      features: [
-        'Tất cả tính năng của Gói Premium 30 ngày',
-        'Nắm bắt toàn diện tình trạng sức khỏe.',
-      ],
-    },
-     {
-      id: 'p360',
-      name: 'Premium Care 360',
-      price: '$114.84',
-      duration: '360 day',
-      description: 'Giải pháp Toàn diện Hướng tới Tương lai Khỏe Mạnh. Gói Premium là lựa chọn hoàn hảo để theo dõi sức khỏe lâu dài.',
-      features: [
-        'Tất cả tính năng của Gói Premium 180 ngày',
-        'Phân tích chuyên sâu và đưa ra các gợi ý được cá nhân hóa.',
-      ],
-    },
-  ],
-};
+import type { Swiper as SwiperType } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import api_get_package from '../data/api/api_get_package';
 
 type TabType = 'standard' | 'premium';
 
 const PricingBlock = () => {
-  const [activeTab, setActiveTab] = useState<TabType>('standard');
-  const [selectedPackageId, setSelectedPackageId] = useState<string | null>('s180');
+    const [activeTab, setActiveTab] = useState<TabType>('standard');
+    const [selectedPackageId, setSelectedPackageId] = useState<string | null>('s180');
+    const [dataPackage, setDataPackage] = useState<any>([]);
+    const swiperRef = useRef<SwiperType | null>(null);
 
-  const currentPackages = packagesData[activeTab];
+    const handlePayment = (packageId: string) => {
+        alert(`Bắt đầu quá trình thanh toán cho gói: ${packageId}`);
+    };
 
-  const handlePayment = (packageId: string) => {
-    alert(`Bắt đầu quá trình thanh toán cho gói: ${packageId}`);
-    // Logic xử lý thanh toán sẽ được thêm vào đây
-  };
+    /*Call API List Package*/
+    const callAPIListPackage = async () => {
+        try {
+            const response: any = await api_get_package({
+                type: activeTab,
+            })
+            setDataPackage(response);
+            if (Array.isArray(response) && response.length > 0) {
+                setTimeout(() => {
+                    if (swiperRef.current) {
+                        swiperRef.current.slideTo(1, 300);
+                    }
+                }, 100);
+                setSelectedPackageId(response[1]._id);
+            } else {
+                setSelectedPackageId(null);
+            }
 
-  return (
-    <div className="pricing-container">
-      <header className="pricing-header">
-        <h1 className="main-title">Package</h1>
-        <div className="tab-navigator">
-          <button
-            className={`tab-button ${activeTab === 'standard' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('standard');
-              setSelectedPackageId('s180');
-            }}
-          >
-            Standard
-          </button>
-          <button
-            className={`tab-button ${activeTab === 'premium' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('premium');
-              setSelectedPackageId('p180');
-            }}
-          >
-            Premium
-          </button>
-        </div>
-      </header>
+        } catch (error: any) {
+            console.log('Error fetching packages:', error.message);
+        }
+    };
 
-      <main className="package-list">
-        {currentPackages.map((pkg) => (
-          <div
-            key={pkg.id}
-            className={`package-card ${selectedPackageId === pkg.id ? 'active' : ''}`}
-            onClick={() => setSelectedPackageId(pkg.id)}
-          >
-            <div className="card-content">
-              <div className="card-header">
-                <h2 className="package-name">{pkg.name}</h2>
-                <p className="package-price">
-                  {pkg.price} / {pkg.duration}
-                </p>
-              </div>
-              <p className="package-description">{pkg.description}</p>
-              <h3 className="features-title">Gói {activeTab === 'standard' ? 'Standard' : 'Premium'} Bao Gồm:</h3>
-              <ul className="features-list">
-                {pkg.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-            <button 
-              className="card-payment-button" 
-              onClick={() => handlePayment(pkg.id)}
+    useEffect(() => {
+        callAPIListPackage();
+    }, [activeTab])
+
+    return (
+        <div className="pricing-container">
+            <header className="pricing-header">
+                <h1 className="main-title">Package</h1>
+                <div className="tab-navigator">
+                    <button className={`tab-button ${activeTab === 'standard' ? 'active' : ''}`} onClick={() => { setActiveTab('standard'); setSelectedPackageId('s180'); }}>Standard</button>
+                    <button className={`tab-button ${activeTab === 'premium' ? 'active' : ''}`} onClick={() => { setActiveTab('premium'); setSelectedPackageId('p180'); }}>Premium</button>
+                </div>
+            </header>
+            <Swiper
+                className="package-swiper"
+                loop={false}
+                slidesPerView={'auto'}
+                spaceBetween={15}
+                centeredSlides={true}
+                onSwiper={(swiper:any) => {
+                    swiperRef.current = swiper;
+                }}
+                onSlideChange={(swiper: SwiperType) => {
+                    const activeSlideId = dataPackage[swiper.realIndex]._id;
+                    setSelectedPackageId(activeSlideId ? activeSlideId : dataPackage[0]._id);
+                }}
             >
-              Thanh toán
-            </button>
-          </div>
-        ))}
-      </main>
+                {dataPackage.map((data: any) => (
+                    <SwiperSlide key={data._id} className="package-slide">
+                        <div className={`package-card ${selectedPackageId === data._id ? 'active' : ''}`} onClick={() => setSelectedPackageId(data._id)}>
 
-    </div>
-  );
+                            {/* Phần 1: Header - cố định ở trên cùng */}
+                            <div className="card-header">
+                                <h1 className="package-name">{data.name}</h1>
+                                <div className="package-row">
+                                    <p className="package-price">{data.price}$/</p>
+                                    <p className="package-unit">{data.duration} Ngày</p>
+                                </div>
+                            </div>
+                            <div className="line-divider"></div>
+
+                            {/* Phần 2: Body - khu vực sẽ cuộn */}
+                            <div className='card-body-scrollable'>
+                                <p className="package-description">{data.description}</p>
+                            </div>
+
+                            {/* Phần 3: Nút bấm - cố định ở dưới cùng */}
+                            <div className="card-payment-button">
+                                <button onClick={(e) => { e.stopPropagation(); handlePayment(data._id); }}>Thanh toán</button>
+                            </div>
+
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
+    );
 };
-
 export default PricingBlock;
