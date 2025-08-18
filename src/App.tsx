@@ -1,14 +1,15 @@
+import InstallationGuideBlock from './components/InstallationGuideBlock';
 import IntroductionBlock from './components/IntroductionBlock';
 import PricingBlock from './components/PricingBlock';
+import UsageGuideBlock from './components/UsageGuideBlock';
 
 function App() {
   return (
     <div className="App">
-      {/* <PricingBlock /> */}
       <IntroductionBlock />
-        {/* <InstallationGuideBlock />
-        <UsageGuideBlock /> */}
       <PricingBlock />
+      <InstallationGuideBlock />
+      <UsageGuideBlock />
     </div>
   );
 }

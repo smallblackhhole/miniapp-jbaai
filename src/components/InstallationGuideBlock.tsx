@@ -1,18 +1,27 @@
 import React from 'react';
+import '../styles/InstallationGuideBlock.css';
 
 const InstallationGuideBlock = () => {
   return (
-    <section id="installation" className="block-section video-section">
-      <h2 className="section-title">Hướng dẫn Cài đặt App</h2>
-      <div className="video-container">
-        {/* Thay thế link YouTube này bằng video của bạn */}
-        <iframe 
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-          title="YouTube video player" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowFullScreen>
-        </iframe>
+    <section id="installation" className="tutorial-install-app">
+      <hr className='style-two'/>
+      <h1 className='head-title'>HUỚNG DẪN CÀI ĐẶT ỨNG DỤNG</h1>
+      <div className="tutorial-install-video-wrapper">
+        <div className="tutorial-install-video">
+          <iframe
+            className="tutorial-install-iframe"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/swg5kUCIKpI"
+            title="JBAAI App Demo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+      <div className="tutorial-install-quote">
+        <i><p>Hướng dẫn cài đặt ứng dụng JBAAI trên điện thoại di động của bạn. Tải xuống ứng dụng và bắt đầu hành trình chăm sóc sức khỏe thông minh của bạn ngay hôm nay! </p></i>
       </div>
     </section>
   );

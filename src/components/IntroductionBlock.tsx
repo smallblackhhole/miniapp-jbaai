@@ -3,17 +3,20 @@
 import React, { useRef, useState } from 'react';
 import '../styles/IntroductionBlock.css';
 import heathyCareImg from '../assets/img/heathy-care.png';
+import InstallationGuideBlock from './InstallationGuideBlock';
+import UsageGuideBlock from './UsageGuideBlock';
+import '../styles/HomePage.css';
 
 const IntroductionBlock = () => {
   return (
-    <>
+    <div className='container-introduction'>
       <img
         src="https://play-lh.googleusercontent.com/xWvxp16yYaYlz2PubTrNjDfn8EcKizgDMQzjjDrQaXKJHwC7PKP0hkMJTiGnTJOPhCvo"
         alt="JBAAI Logo"
         className="logo"
       />
       <div className='container-detail'>
-        <h1>ABOUT US</h1>
+        <h1 className='head-title'>ABOUT US</h1>
         <p><b>JBAAI</b> là ứng dụng chăm sóc sức khỏe thông minh, ứng dụng trí tuệ nhân tạo (AI) để hỗ trợ bạn theo dõi, quản lý và cải thiện sức khỏe một cách toàn diện. Chúng tôi tin rằng mỗi người đều xứng đáng có một “trợ lý sức khỏe” riêng, giúp đưa ra những quyết định đúng đắn, kịp thời và mang tính cá nhân hóa. Với JBAAI, bạn không chỉ dễ dàng theo dõi các chỉ số sức khỏe của mình, mà còn nhận được những gợi ý phù hợp về chế độ ăn uống, luyện tập và tư vấn y tế, nhằm hướng tới một lối sống lành mạnh và cân bằng hơn.</p>
       </div>
       <img src={heathyCareImg} className='healthy-care-image' />
@@ -21,12 +24,7 @@ const IntroductionBlock = () => {
       <DetailApp />
       <AboutUs />
       <hr className="style-two" />
-      <h1>HUỚNG DẪN CÀI ĐẶT ỨNG DỤNG</h1>
-      <TutorialInstallApp />
-      <hr className="style-two" />
-      <h1>HƯỚNG DẪN SỬ DỤNG ỨNG DỤNG</h1>
-      <TutorialUseApp />
-    </>
+    </div>
   );
 };
 
@@ -59,7 +57,7 @@ const DetailApp = () => {
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS86mMifhAoJZBOgH8oC3QElFZyYapyfDnxFXjnITyAPlBTScXVAmnmLGVJXw8OExaLZkE&usqp=CAU",
       title: "Theo dõi sức khỏe",
-      desc: "Ghi nhận và phân tích các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng…"
+      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng…"
     },
     {
       img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
@@ -69,23 +67,27 @@ const DetailApp = () => {
     {
       img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
       title: "Phân tích sức khoẻ qua khuôn mặt",
-      desc: "Sử dụng công nghệ nhận diện khuôn mặt để phân tích và đánh giá tình trạng sức khỏe của người dùng."
+      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng."
     },
     {
       img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
       title: "Smart Ring",
       desc: "Thiết bị đeo thông minh giúp theo  dõi sức khỏe 24/7."
     },
-
     {
-      img: "https://img.freepik.com/free-photo/abstract-architecture-design_1127-3394.jpg?w=740",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS86mMifhAoJZBOgH8oC3QElFZyYapyfDnxFXjnITyAPlBTScXVAmnmLGVJXw8OExaLZkE&usqp=CAU",
+      title: "Theo dõi sức khỏe",
+      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng…"
+    },
+    {
+      img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
       title: "Trợ lý AI tư vấn sức khỏe",
       desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người."
     },
     {
-      img: "https://img.freepik.com/free-photo/blue-sky-modern-architecture_1127-400.jpg?w=740",
+      img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
       title: "Phân tích sức khoẻ qua khuôn mặt",
-      desc: "Sử dụng công nghệ nhận diện khuôn mặt để phân tích và đánh giá tình trạng sức khỏe của người dùng."
+      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng."
     },
     {
       img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
@@ -182,52 +184,5 @@ const DetailApp = () => {
   );
 }
 
-const TutorialInstallApp = () => {
-  return (
-    <div className="tutorial-install-app">
-      <div className="tutorial-install-video-wrapper">
-        <div className="tutorial-install-video">
-          <iframe
-            className="tutorial-install-iframe"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/swg5kUCIKpI"
-            title="JBAAI App Demo"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-      <div className="tutorial-install-quote">
-        <i><p>Hướng dẫn cài đặt ứng dụng JBAAI trên điện thoại di động của bạn. Tải xuống ứng dụng và bắt đầu hành trình chăm sóc sức khỏe thông minh của bạn ngay hôm nay! </p></i>
-      </div>  
-    </div>
-  );
-}
-
-const TutorialUseApp = () => {
-  return (
-    <div className="tutorial-install-app">
-      <div className="tutorial-install-video-wrapper">
-        <div className="tutorial-install-video">
-          <iframe
-            className="tutorial-install-iframe"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/swg5kUCIKpI"
-            title="JBAAI App Demo Use"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-      <div className="tutorial-install-quote">
-        <i><p>Hướng dẫn sử dụng ứng dụng JBAAI trên điện thoại di động của bạn.</p></i>
-      </div>  
-    </div>
-  );
-} 
 export default IntroductionBlock;
 

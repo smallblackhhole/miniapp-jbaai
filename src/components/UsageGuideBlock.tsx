@@ -1,18 +1,28 @@
 import React from 'react';
+import '../styles/UsageGuideBlock.css';
+import '../styles/HomePage.css';
 
 const UsageGuideBlock = () => {
   return (
-    <section id="usage" className="block-section video-section">
-      <h2 className="section-title">Hướng dẫn Sử dụng App</h2>
-      <div className="video-container">
-        {/* Thay thế link YouTube này bằng video của bạn */}
-        <iframe 
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-          title="YouTube video player" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowFullScreen>
-        </iframe>
+    <section id="usage" className="usage-guide-app">
+      <hr className="style-two" />
+      <h1 className='head-title'>HƯỚNG DẪN SỬ DỤNG ỨNG DỤNG</h1>
+      <div className="usage-guide-video-wrapper">
+        <div className="usage-guide-video">
+          <iframe
+            className="usage-guide-iframe"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/swg5kUCIKpI"
+            title="JBAAI App Demo Use"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+      <div className="usage-guide-quote">
+        <i><p>Hướng dẫn sử dụng ứng dụng JBAAI trên điện thoại di động của bạn.</p></i>
       </div>
     </section>
   );

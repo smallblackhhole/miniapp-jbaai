@@ -1,3 +1,13 @@
+/* --- Base Styles --- */
+* {
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
 @keyframes slideInLeft {
     from {
         opacity: 0;
@@ -10,7 +20,8 @@
     }
 }
 
-h1 {
+/* --- Headings --- */
+.head-title {
     animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 30px;
     font-weight: 800;
@@ -21,8 +32,7 @@ h1 {
     transition: color 0.2s;
 }
 
-
-h1::after {
+.head-title::after {
     content: "";
     display: block;
     margin: 10px auto 0 auto;
@@ -32,139 +42,6 @@ h1::after {
     background: linear-gradient(90deg, #2a57ca 0%, #a3dbe8 100%);
     opacity: 0.7;
     transition: width 0.3s, background 0.3s;
-}
-
-@media (max-width: 900px) {
-    h1 {
-        font-size: 1.6rem;
-        padding: 0 8px;
-        text-align: center;
-    }
-
-    .container-detail {
-        width: 98vw;
-    }
-
-    .container-about {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        padding: 18px 4vw;
-    }
-
-    .aboutus-image {
-        width: 100%;
-        height: auto;
-        max-width: 320px;
-    }
-
-    .aboutus-right {
-        align-items: center;
-        text-align: center;
-    }
-
-    .healthy-care-image {
-        width: 98vw;
-        max-width: 340px;
-        margin: 0 auto;
-        display: block;
-    }
-
-    .tutorial-install-video-wrapper {
-        max-width: 100vw;
-        border-radius: 10px;
-    }
-
-    .tutorial-install-quote {
-        font-size: 15px;
-        max-width: 98vw;
-        margin-top: 16px;
-        padding: 0 2vw;
-    }
-
-    .detail-app-section {
-        padding: 32px 0 24px 0;
-    }
-
-    .detail-app-card {
-        width: 95vw;
-        min-width: unset;
-        max-width: 340px;
-        padding: 18px 8px 16px 8px;
-    }
-
-    .carousel-list li {
-        height: auto;
-        min-height: 320px;
-    }
-
-    hr.style-two {
-        width: 90vw;
-        margin-top: 32px;
-        margin-bottom: 32px;
-    }
-}
-
-* {
-    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #948c8c;
-}
-
-@media (max-width: 900px) {
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    p {
-        font-size: 15px;
-    }
-
-    .aboutus-title {
-        font-size: 24px;
-    }
-
-    .aboutus-content {
-        font-size: 14px;
-    }
-
-    .detail-app-card-title {
-        font-size: 18px;
-    }
-
-    .detail-app-card-desc {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.2rem;
-    }
-
-    p {
-        font-size: 13px;
-    }
-
-    .aboutus-title {
-        font-size: 18px;
-    }
-
-    .aboutus-content {
-        font-size: 12px;
-    }
-
-    .detail-app-card-title {
-        font-size: 15px;
-    }
-
-    .detail-app-card-desc {
-        font-size: 12px;
-    }
 }
 
 .logo {
@@ -177,7 +54,14 @@ p {
     height: auto;
 }
 
-/* About us */
+/* --- About Us Section --- */
+.container-introduction {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
 .container-about {
     display: flex;
     justify-content: flex-start;
@@ -234,53 +118,7 @@ p {
     margin-bottom: 0;
 }
 
-
-@media (max-width: 900px) {
-    .aboutus-image {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-
-    .aboutus-title {
-        font-size: 24px;
-    }
-
-    .aboutus-content {
-        font-size: 14px;
-    }
-
-    .container-about {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        padding: 18px 4vw;
-    }
-}
-
-@media (max-width: 600px) {
-    .aboutus-image {
-        width: 99vw;
-        max-width: 99vw;
-        height: auto;
-    }
-
-    .aboutus-title {
-        font-size: 18px;
-    }
-
-    .aboutus-content {
-        font-size: 12px;
-    }
-
-    .container-about {
-        padding: 10px 2vw;
-        gap: 12px;
-    }
-}
-
-/* Detail App Section */
+/* --- Detail App Section --- */
 .detail-app-cards {
     display: flex;
     gap: 32px;
@@ -289,19 +127,13 @@ p {
     flex-wrap: wrap;
 }
 
-
-.carousel-list li:hover .detail-app-card {
-    transform: translateY(-16px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.36);
-}
-
 .detail-app-card {
     background: #fff;
     border-radius: 24px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     padding: 32px 24px 24px 24px;
     width: 320px;
-    height: 380px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -320,71 +152,16 @@ p {
     margin-bottom: 18px;
 }
 
-@media (max-width: 900px) {
-    .detail-app-card-img {
-        height: 220px;
-    }
-}
-
-@media (max-width: 600px) {
-    .detail-app-card-img {
-        height: 260px;
-    }
-}
-
 .detail-app-card-title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-/* Responsive font-size and card width for DetailApp */
-@media (max-width: 900px) {
-    .detail-app-card-title {
-        font-size: 18px;
-    }
-
-    .detail-app-card {
-        width: 98vw;
-        max-width: 420px;
-        min-width: unset;
-        padding: 18px 8px 16px 8px;
-    }
-}
-
-@media (max-width: 600px) {
-    .detail-app-card-title {
-        font-size: 15px;
-    }
-
-    .detail-app-card-desc {
-        font-size: 12px;
-    }
-
-    .detail-app-card {
-        width: 99vw;
-        max-width: 99vw;
-        min-width: unset;
-        padding: 10px 2vw 10px 2vw;
-    }
-}
-
 .detail-app-card-desc {
     color: #333;
     font-size: 16px;
     line-height: 1.6;
-}
-
-@media (max-width: 900px) {
-    .detail-app-card-desc {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 600px) {
-    .detail-app-card-desc {
-        font-size: 12px;
-    }
 }
 
 .detail-app-btn-wrap {
@@ -410,40 +187,14 @@ p {
     border-color: #d6bfc2;
 }
 
-@media (max-width: 1100px) {
-    .detail-app-cards {
-        gap: 16px;
-    }
-
-    .detail-app-card {
-        width: 280px;
-        padding: 24px 12px 18px 12px;
-    }
-}
-
-@media (max-width: 900px) {
-    .detail-app-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-hr.style-two {
-    border: 0;
-    height: 1px;
-    width: 50%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
+/* --- Carousel Section --- */
 .carousel-list {
     display: flex;
     gap: 3vw;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 0;
+    padding-top: 30px;
     margin: 0;
     height: auto;
 }
@@ -451,12 +202,17 @@ hr.style-two {
 .carousel-list li {
     list-style-type: none;
     flex: 0 0 30%;
-    height: 500px;
+    height: auto;
     scroll-snap-align: start;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.carousel-list li:hover .detail-app-card {
+    transform: translateY(-16px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.36);
 }
 
 .scroll-dots {
@@ -478,11 +234,178 @@ hr.style-two {
     background-color: black;
 }
 
+/* --- Tutorial Install App Section --- */
+
+/* --- Divider --- */
+hr.style-two {
+    border: 0;
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 1100px) {
+    .detail-app-cards {
+        gap: 16px;
+    }
+
+    .detail-app-card {
+        width: 280px;
+        padding: 24px 12px 18px 12px;
+    }
+}
+
 @media (max-width: 1024px) {
     .carousel-list li {
         flex: 0 0 50%;
         max-width: 50%;
         scroll-snap-align: center;
+    }
+
+    .container-about {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 18px 4vw;
+    }
+
+    .aboutus-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .aboutus-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .detail-app-card {
+        width: 98vw;
+        max-width: 420px;
+        min-width: unset;
+        padding: 18px 8px 16px 8px;
+    }
+
+    .carousel-list li {
+        height: auto;
+        min-height: 320px;
+    }
+
+    .detail-app-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .aboutus-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 950px) {
+    .head-title {
+        font-size: 1.6rem;
+        padding: 0 8px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .aboutus-title {
+        font-size: 24px;
+    }
+
+    .aboutus-content {
+        font-size: 14px;
+    }
+
+    .detail-app-card-title {
+        font-size: 18px;
+    }
+
+    .detail-app-card-desc {
+        font-size: 14px;
+    }
+
+    .container-detail {
+        padding: 0 10px;
+    }
+
+    .container-about {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 18px 4vw;
+    }
+
+    .aboutus-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .aboutus-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .healthy-care-image {
+        width: 98vw;
+        max-width: 340px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .tutorial-install-video-wrapper {
+        max-width: 100vw;
+        border-radius: 10px;
+    }
+
+    .tutorial-install-quote {
+        font-size: 15px;
+        max-width: 98vw;
+        margin-top: 16px;
+        padding: 0 2vw;
+    }
+
+    .detail-app-section {
+        padding: 32px 0 24px 0;
+    }
+
+    .detail-app-card {
+        width: 98vw;
+        max-width: 420px;
+        min-width: unset;
+        padding: 18px 8px 16px 8px;
+    }
+
+    .carousel-list li {
+        height: auto;
+        min-height: 320px;
+    }
+
+    .detail-app-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    hr.style-two {
+        width: 90vw;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .detail-app-card-img {
+        height: 220px;
     }
 }
 
@@ -494,49 +417,50 @@ hr.style-two {
     }
 }
 
-/* Tutorial Install App Section */
-.tutorial-install-app {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 48px 0;
-}
-
-.tutorial-install-video-wrapper {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
-    background: #fff;
-}
-
-.tutorial-install-video {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tutorial-install-quote {
-    margin-top: 16px;
-    text-align: center;
-    color: #222;
-    max-width: 700px;
-}
-
-@media (max-width: 900px) {
-    .tutorial-install-video-wrapper {
-        max-width: 100%;
-        border-radius: 12px;
+@media (max-width: 600px) {
+    .head-title {
+        font-size: 1.2rem;
     }
 
-    .tutorial-install-quote {
-        max-width: 95vw;
-        margin-top: 24px;
+    p {
+        font-size: 13px;
+    }
+
+    .aboutus-title {
+        font-size: 18px;
+    }
+
+    .aboutus-content {
+        font-size: 12px;
+    }
+
+    .detail-app-card-title {
+        font-size: 15px;
+    }
+
+    .detail-app-card-desc {
+        font-size: 12px;
+    }
+
+    .aboutus-image {
+        width: 99vw;
+        max-width: 99vw;
+        height: auto;
+    }
+
+    .container-about {
+        padding: 10px 2vw;
+        gap: 12px;
+    }
+
+    .detail-app-card {
+        width: 99vw;
+        max-width: 99vw;
+        min-width: unset;
+        padding: 10px 2vw 10px 2vw;
+    }
+
+    .detail-app-card-img {
+        height: 260px;
     }
 }
