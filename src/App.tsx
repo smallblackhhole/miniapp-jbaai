@@ -10,6 +10,7 @@ function App() {
       <PricingBlock />
       <InstallationGuideBlock />
       <UsageGuideBlock />
+      
     </div>
   );
 }

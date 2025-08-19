@@ -7,37 +7,12 @@
 /* --- Container chính và Header --- */
 .pricing-container {
   display: flex;
+  border-radius: 30px;
   flex-direction: column;
-  /* background-color: #f0f4f8; */
+  /* background: linear-gradient(135deg, #dbe7f4 0%, white 55%, #cbe5f5 100%); */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   height: 100vh;
 }
-
-
-/* --- Headings --- */
-.head-title {
-    animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 30px;
-    font-weight: 800;
-    color: #15156e;
-    text-align: center;
-    letter-spacing: 0.02em;
-    position: relative;
-    transition: color 0.2s;
-}
-
-.head-title::after {
-    content: "";
-    display: block;
-    margin: 10px auto 0 auto;
-    width: 90px;
-    height: 5px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, #2a57ca 0%, #a3dbe8 100%);
-    opacity: 0.7;
-    transition: width 0.3s, background 0.3s;
-}
-
 
 .main-title {
   text-align: left;

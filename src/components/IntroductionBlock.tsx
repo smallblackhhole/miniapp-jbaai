@@ -10,14 +10,12 @@ import '../styles/HomePage.css';
 const IntroductionBlock = () => {
   return (
     <div className='container-introduction'>
-      {/* <CardInfor /> */}
       <img
-        src="https://play-lh.googleusercontent.com/xWvxp16yYaYlz2PubTrNjDfn8EcKizgDMQzjjDrQaXKJHwC7PKP0hkMJTiGnTJOPhCvo"
+        src="/logo512.png"
         alt="JBAAI Logo"
         className="logo"
       />
       <DetailApp />
-
       <div className='container-detail'>
         <h1 className='head-title'>ABOUT US</h1>
         <p><b>JBAAI</b> là ứng dụng chăm sóc sức khỏe thông minh, ứng dụng trí tuệ nhân tạo (AI) để hỗ trợ bạn theo dõi, quản lý và cải thiện sức khỏe một cách toàn diện. Chúng tôi tin rằng mỗi người đều xứng đáng có một “trợ lý sức khỏe” riêng, giúp đưa ra những quyết định đúng đắn, kịp thời và mang tính cá nhân hóa. Với JBAAI, bạn không chỉ dễ dàng theo dõi các chỉ số sức khỏe của mình, mà còn nhận được những gợi ý phù hợp về chế độ ăn uống, luyện tập và tư vấn y tế, nhằm hướng tới một lối sống lành mạnh và cân bằng hơn.</p>
@@ -101,35 +99,15 @@ const DetailApp = () => {
       desc: "Thiết bị đeo thông minh giúp theo dõi sức khỏe 24/7. Dữ liệu được đồng bộ liên tục, hỗ trợ bạn chăm sóc sức khỏe chủ động mọi lúc mọi nơi.",
       color: "#f7b267"
     },
-    {
-      img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
-      title: "Trợ lý AI tư vấn sức khỏe",
-      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người. AI đồng hành cùng bạn xây dựng lối sống lành mạnh, khoa học.",
-      color: "#4fc3c9"
-    },
-    {
-      img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
-      title: "Phân tích sức khoẻ qua khuôn mặt",
-      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng. Phân tích các chỉ số sinh học giúp bạn hiểu rõ hơn về sức khỏe bản thân.",
-      color: "#b48ecb"
-    },
-    {
-      img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
-      title: "Smart Ring",
-      desc: "Thiết bị đeo thông minh giúp theo dõi sức khỏe 24/7. Dữ liệu được đồng bộ liên tục, hỗ trợ bạn chăm sóc sức khỏe chủ động mọi lúc mọi nơi.",
-      color: "#f7b267"
-    },
   ];
 
-  // Luôn hiển thị 3 card, card giữa là lớn nhất
   const cardsPerPage = 3;
 
-  // Số trang (dot) = số lần scroll hợp lý
   const totalPages = items.length > cardsPerPage ? items.length - cardsPerPage + 1 : 1;
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
-    // Tự động scroll từng card một
+    // Scroll từng card 
     timeout = setTimeout(() => {
       if (!listRef.current) return;
       let nextIndex = (currentIndex + 1) % totalPages;
@@ -178,22 +156,8 @@ const DetailApp = () => {
         onScroll={handleScroll}
       >
         {items.map((item, i) => {
-          let isMobile = false;
-          if (typeof window !== 'undefined') {
-            isMobile = window.innerWidth <= 600;
-          }
-          // Desktop: card ở giữa (index = currentIndex + 1) là active
-          // Mobile: card ở vị trí currentIndex là active
           let isActive = false;
-          if (isMobile) {
-            isActive = i === currentIndex;
-            if(currentIndex === 4)
-            {
-              isActive = i === currentIndex + 1;
-            }
-          } else {
-            isActive = i === currentIndex + 1;
-          }
+          isActive = i === currentIndex + 1;
           return (
             <li key={i} className={isActive ? 'active' : ''}>
               <CardInfor

@@ -24,7 +24,7 @@ const UsageGuideBlock = () => {
         <i><p>Hướng dẫn sử dụng ứng dụng JBAAI trên điện thoại di động của bạn.</p></i>
       </div>
 
-       <footer style={{textAlign: 'center', marginTop: 32, color: '#888', fontSize: 14}}>
+      <footer style={{ textAlign: 'center', marginTop: 32, color: '#888', fontSize: 14 }}>
         © 2025 JBAAI. All Rights Reserved.
       </footer>
     </section>

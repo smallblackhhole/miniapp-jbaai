@@ -20,30 +20,6 @@ p {
     }
 }
 
-/* --- Headings --- */
-.head-title {
-    animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 30px;
-    font-weight: 800;
-    color: #15156e;
-    text-align: center;
-    letter-spacing: 0.02em;
-    position: relative;
-    transition: color 0.2s;
-    padding-top: 50px;
-}
-
-.head-title::after {
-    content: "";
-    display: block;
-    margin: 10px auto 0 auto;
-    width: 90px;
-    height: 5px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, #2a57ca 0%, #a3dbe8 100%);
-    opacity: 0.7;
-    transition: width 0.3s, background 0.3s;
-}
 
 .logo {
     width: 200px;
@@ -94,7 +70,8 @@ p {
 
 .container-detail {
     width: 70%;
-    justify-content: center;    
+    justify-content: center;
+    text-align: center;
     margin: auto;
     line-height: 2;
 }
@@ -130,20 +107,8 @@ p {
     margin-bottom: 0;
 }
 
-/* --- Detail App Section --- */
-.detail-app-cards {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-}
-
-
-
 /* --- Carousel Section --- */
 .carousel-list {
-    /* background-color: #a0b4e8; */
     display: flex;
     gap: 3vw;
     overflow-x: auto;
@@ -151,6 +116,12 @@ p {
     scroll-behavior: smooth;
     padding: 30px 10px;
     height: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.carousel-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .carousel-list li {
@@ -188,25 +159,6 @@ p {
     background-color: black;
 }
 
-/* --- Tutorial Install App Section --- */
-
-/* --- Divider --- */
-hr.style-two {
-    border: 0;
-    height: 1px;
-    width: 50%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-/* --- Responsive Styles --- */
-@media (max-width: 1100px) {
-    .detail-app-cards {
-        gap: 16px;
-    }
-
-}
 
 @media (max-width: 1024px) {
     .carousel-list li {
@@ -240,11 +192,6 @@ hr.style-two {
         min-height: 320px;
     }
 
-    .detail-app-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .aboutus-image {
         width: 100%;
         max-width: 100%;
@@ -254,11 +201,6 @@ hr.style-two {
 }
 
 @media (max-width: 950px) {
-    .head-title {
-        font-size: 1.6rem;
-        padding: 0 8px;
-        text-align: center;
-    }
 
     p {
         font-size: 15px;
@@ -326,17 +268,6 @@ hr.style-two {
         min-height: 320px;
     }
 
-    .detail-app-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    hr.style-two {
-        width: 90vw;
-        margin-top: 32px;
-        margin-bottom: 32px;
-    }
-
 }
 
 @media (max-width: 768px) {
@@ -348,10 +279,7 @@ hr.style-two {
 }
 
 @media (max-width: 600px) {
-    .head-title {
-        font-size: 1.2rem;
-    }
-
+    
     p {
         font-size: 13px;
     }
@@ -359,6 +287,7 @@ hr.style-two {
     .container-detail {
         padding: 0 10px;
         justify-content: center;
+        text-align: center;
     }
 
     .aboutus-title {
@@ -380,9 +309,6 @@ hr.style-two {
         padding: 10px 2vw;
         gap: 12px;
     }
-
-
-
 }
 
 
@@ -392,7 +318,6 @@ hr.style-two {
     min-height: auto;
     background: linear-gradient(135deg, #679be2 0%, #ffffff 55%, #b1d0ee 70%, #679be2 100%);
     border-radius: 24px;
-    box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.10);
     padding: 36px 32px 28px 32px;
     display: flex;
     flex-direction: column;
@@ -403,8 +328,6 @@ hr.style-two {
     cursor: pointer;
 }
 
-
-/* Hiệu ứng card-infor active (ở giữa) - smooth & subtle */
 .carousel-list li.active .card-infor {
     transform: scale(1.065);
     box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.13);
@@ -473,8 +396,9 @@ hr.style-two {
 
 .card-infor-quote-text {
     flex: 1;
-    color: #787272;
+    color: #333;
     font-size: 14px;
+    text-align: center;
 }
 
 .card-infor-divider {
@@ -485,12 +409,11 @@ hr.style-two {
 }
 
 .card-infor-name {
-    font-weight: 500;
+    font-weight: 550;
     font-size: 18px;
-    color: #111;
-    text-align: left;
+    color: #333;
+    margin: auto;
     margin-bottom: 10px;
-    margin-left: 0;
 }
 
 .card-infor-dots {
@@ -519,60 +442,63 @@ hr.style-two {
 @media (max-width: 600px) {
     .carousel-list {
         gap: 10px;
-        padding-left: 16vw;
-        padding-right: 16vw;
     }
+
     .card-infor {
         width: 80vw;
         min-width: unset;
         max-width: 90vw;
         border-radius: 16px;
     }
+
     .card-infor-img-wrap {
         width: 120px;
         height: 120px;
         margin-bottom: 12px;
     }
+
     .card-infor-img-wrap::before {
         width: 110px;
         height: 110px;
         border-width: 3px;
     }
+
     .card-infor-img {
         width: 100px;
         height: 100px;
     }
+
     .card-infor-quote {
         font-size: 12px;
         line-height: 1.4;
         padding: 0;
     }
+
     .card-infor-quote-text {
+        text-align: center;
+        color: #333;
         font-size: 12px;
     }
+
     .card-infor-divider {
         margin: 10px 0 10px 0;
     }
+
     .card-infor-name {
+        font-weight: 600;
+        margin: auto;
         font-size: 14px;
         margin-bottom: 6px;
     }
+
     .card-infor-dots {
         gap: 6px;
         padding: 4px 0;
     }
+
     .card-infor-dots .dot {
         width: 10px;
         height: 4px;
         border-radius: 4px;
-    }
-}
-
-@media (max-width: 600px) {
-    .carousel-list li.active .card-infor {
-        transform: scale(1.06);
-        box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.13);
-        z-index: 2;
-        transition: transform 0.45s cubic-bezier(.4, 0.2, .2, 1), box-shadow 0.32s cubic-bezier(.4, 0.2, .2, 1);
     }
 }

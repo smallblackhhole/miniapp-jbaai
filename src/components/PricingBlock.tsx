@@ -48,7 +48,7 @@ const PricingBlock = () => {
     return (
         <div className="pricing-container">
             <header className="pricing-header">
-                <h1 className="head-title">Package</h1>
+                <h1 className="head-title">PACKAGE</h1>
                 <div className="tab-navigator">
                     <button className={`tab-button ${activeTab === 'standard' ? 'active' : ''}`} onClick={() => { setActiveTab('standard'); setSelectedPackageId('s180'); }}>Standard</button>
                     <button className={`tab-button ${activeTab === 'premium' ? 'active' : ''}`} onClick={() => { setActiveTab('premium'); setSelectedPackageId('p180'); }}>Premium</button>
