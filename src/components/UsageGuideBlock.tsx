@@ -5,7 +5,6 @@ import '../styles/HomePage.css';
 const UsageGuideBlock = () => {
   return (
     <section id="usage" className="usage-guide-app">
-      <hr className="style-two" />
       <h1 className='head-title'>HƯỚNG DẪN SỬ DỤNG ỨNG DỤNG</h1>
       <div className="usage-guide-video-wrapper">
         <div className="usage-guide-video">

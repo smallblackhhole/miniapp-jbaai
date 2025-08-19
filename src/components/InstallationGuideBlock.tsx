@@ -4,7 +4,6 @@ import '../styles/InstallationGuideBlock.css';
 const InstallationGuideBlock = () => {
   return (
     <section id="installation" className="tutorial-install-app">
-      <hr className='style-two'/>
       <h1 className='head-title'>HUỚNG DẪN CÀI ĐẶT ỨNG DỤNG</h1>
       <div className="tutorial-install-video-wrapper">
         <div className="tutorial-install-video">
