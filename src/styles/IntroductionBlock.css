@@ -1,3 +1,11 @@
+@media (max-width: 600px) {
+    .carousel-list li.active .card-infor {
+        transform: scale(1.06);
+        box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.13);
+        z-index: 2;
+        transition: transform 0.45s cubic-bezier(.4, 0.2, .2, 1), box-shadow 0.32s cubic-bezier(.4, 0.2, .2, 1);
+    }
+}
 /* --- Base Styles --- */
 * {
     font-family: 'Quicksand', Arial, Helvetica, sans-serif;
@@ -49,6 +57,18 @@ p {
     height: auto;
 }
 
+@media (max-width: 950px) {
+    .logo {
+        width: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 90px;
+    }
+}
+
 .healthy-care-image {
     width: 80%;
     height: auto;
@@ -76,13 +96,12 @@ p {
     width: 600px;
     height: 460px;
     border-radius: 20px;
-    object-fit: cover;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    object-fit: contain;
 }
 
 .container-detail {
     width: 70%;
-    justify-content: center;
+    justify-content: center;    
     margin: auto;
     line-height: 2;
 }
@@ -127,42 +146,6 @@ p {
     flex-wrap: wrap;
 }
 
-.detail-app-card {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    padding: 32px 24px 24px 24px;
-    width: 320px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.2s, transform 0.2s;
-}
-
-.detail-app-card:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-.detail-app-card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 16px;
-    margin-bottom: 18px;
-}
-
-.detail-app-card-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.detail-app-card-desc {
-    color: #333;
-    font-size: 16px;
-    line-height: 1.6;
-}
 
 .detail-app-btn-wrap {
     margin-top: 12px;
@@ -189,13 +172,13 @@ p {
 
 /* --- Carousel Section --- */
 .carousel-list {
+    /* background-color: #a0b4e8; */
     display: flex;
     gap: 3vw;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding-top: 30px;
-    margin: 0;
+    padding: 30px 10px;
     height: auto;
 }
 
@@ -300,6 +283,7 @@ hr.style-two {
         flex-direction: column;
         align-items: center;
     }
+
     .aboutus-image {
         width: 100%;
         max-width: 100%;
@@ -337,6 +321,7 @@ hr.style-two {
 
     .container-detail {
         padding: 0 10px;
+        justify-content: center;
     }
 
     .container-about {
@@ -426,6 +411,11 @@ hr.style-two {
         font-size: 13px;
     }
 
+    .container-detail {
+        padding: 0 10px;
+        justify-content: center;
+    }
+
     .aboutus-title {
         font-size: 18px;
     }
@@ -462,5 +452,189 @@ hr.style-two {
 
     .detail-app-card-img {
         height: 260px;
+    }
+
+}
+
+
+/* --- Card infor New --- */
+.card-infor {
+    width: 400px;
+    min-height: auto;
+    background: linear-gradient(135deg, #679be2 0%, #ffffff 55%, #b1d0ee 70%, #679be2 100%);
+    border-radius: 24px;
+    box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.10);
+    padding: 36px 32px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(.4, 2, .6, 1), box-shadow 0.22s cubic-bezier(.4, 2, .6, 1);
+    cursor: pointer;
+}
+
+
+/* Hiệu ứng card-infor active (ở giữa) - smooth & subtle */
+.carousel-list li.active .card-infor {
+    transform: scale(1.065);
+    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.13);
+    z-index: 2;
+    transition: transform 0.45s cubic-bezier(.4, 0.2, .2, 1), box-shadow 0.32s cubic-bezier(.4, 0.2, .2, 1);
+}
+
+.card-infor-img-wrap {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.card-infor-img-wrap::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+    z-index: 2;
+}
+
+.card-infor-img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 3;
+}
+
+.card-infor-quote {
+    display: flex;
+    align-items: flex-start;
+    color: #222;
+    font-size: 14px;
+    text-align: left;
+    z-index: 1;
+    position: relative;
+    line-height: 1.6;
+    font-weight: 400;
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.card-infor-quote-icon {
+    font-size: 2.2rem;
+    color: #222;
+    margin-right: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.card-infor-quote-text {
+    flex: 1;
+    color: #787272;
+    font-size: 14px;
+}
+
+.card-infor-divider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 18px 0 18px 0;
+}
+
+.card-infor-name {
+    font-weight: 500;
+    font-size: 18px;
+    color: #111;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+.card-infor-dots {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 10px;
+}
+
+.card-infor-dots .dot {
+    width: 16px;
+    height: 6px;
+    border-radius: 6px;
+    background: #e0d2f7;
+    display: inline-block;
+    transition: background 0.2s;
+}
+
+.card-infor-dots .dot.active {
+    background: #222;
+}
+
+
+@media (max-width: 600px) {
+    .carousel-list {
+        gap: 10px;
+        padding-left: 16vw;
+        padding-right: 16vw;
+    }
+    .card-infor {
+        width: 80vw;
+        min-width: unset;
+        max-width: 90vw;
+        border-radius: 16px;
+    }
+    .card-infor-img-wrap {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 12px;
+    }
+    .card-infor-img-wrap::before {
+        width: 110px;
+        height: 110px;
+        border-width: 3px;
+    }
+    .card-infor-img {
+        width: 100px;
+        height: 100px;
+    }
+    .card-infor-quote {
+        font-size: 12px;
+        line-height: 1.4;
+        padding: 0;
+    }
+    .card-infor-quote-text {
+        font-size: 12px;
+    }
+    .card-infor-divider {
+        margin: 10px 0 10px 0;
+    }
+    .card-infor-name {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    .card-infor-dots {
+        gap: 6px;
+        padding: 4px 0;
+    }
+    .card-infor-dots .dot {
+        width: 10px;
+        height: 4px;
+        border-radius: 4px;
     }
 }

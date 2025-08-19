@@ -10,18 +10,19 @@ import '../styles/HomePage.css';
 const IntroductionBlock = () => {
   return (
     <div className='container-introduction'>
+      {/* <CardInfor /> */}
       <img
         src="https://play-lh.googleusercontent.com/xWvxp16yYaYlz2PubTrNjDfn8EcKizgDMQzjjDrQaXKJHwC7PKP0hkMJTiGnTJOPhCvo"
         alt="JBAAI Logo"
         className="logo"
       />
+      <DetailApp />
+
       <div className='container-detail'>
         <h1 className='head-title'>ABOUT US</h1>
         <p><b>JBAAI</b> là ứng dụng chăm sóc sức khỏe thông minh, ứng dụng trí tuệ nhân tạo (AI) để hỗ trợ bạn theo dõi, quản lý và cải thiện sức khỏe một cách toàn diện. Chúng tôi tin rằng mỗi người đều xứng đáng có một “trợ lý sức khỏe” riêng, giúp đưa ra những quyết định đúng đắn, kịp thời và mang tính cá nhân hóa. Với JBAAI, bạn không chỉ dễ dàng theo dõi các chỉ số sức khỏe của mình, mà còn nhận được những gợi ý phù hợp về chế độ ăn uống, luyện tập và tư vấn y tế, nhằm hướng tới một lối sống lành mạnh và cân bằng hơn.</p>
       </div>
-      <img src={heathyCareImg} className='healthy-care-image' />
       <hr className="style-two" />
-      <DetailApp />
       <AboutUs />
       <hr className="style-two" />
     </div>
@@ -55,119 +56,157 @@ const DetailApp = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = [
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS86mMifhAoJZBOgH8oC3QElFZyYapyfDnxFXjnITyAPlBTScXVAmnmLGVJXw8OExaLZkE&usqp=CAU",
+      img: "https://ictv.1cdn.vn/2024/11/22/bai-6_ung-dung-tri-tue-nhan-tao-trong-chuyen-doi-so-nganh-y-te.jpeg",
       title: "Theo dõi sức khỏe",
-      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng…"
+      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng… Ứng dụng giúp bạn kiểm soát và phát hiện sớm các dấu hiệu bất thường.",
+      color: "#679be2"
     },
     {
       img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
       title: "Trợ lý AI tư vấn sức khỏe",
-      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người."
+      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người. AI đồng hành cùng bạn xây dựng lối sống lành mạnh, khoa học.",
+      color: "#4fc3c9"
     },
     {
       img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
       title: "Phân tích sức khoẻ qua khuôn mặt",
-      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng."
+      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng. Phân tích các chỉ số sinh học giúp bạn hiểu rõ hơn về sức khỏe bản thân.",
+      color: "#b48ecb"
     },
     {
       img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
       title: "Smart Ring",
-      desc: "Thiết bị đeo thông minh giúp theo  dõi sức khỏe 24/7."
+      desc: "Thiết bị đeo thông minh giúp theo dõi sức khỏe 24/7. Dữ liệu được đồng bộ liên tục, hỗ trợ bạn chăm sóc sức khỏe chủ động mọi lúc mọi nơi.",
+      color: "#f7b267"
     },
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS86mMifhAoJZBOgH8oC3QElFZyYapyfDnxFXjnITyAPlBTScXVAmnmLGVJXw8OExaLZkE&usqp=CAU",
+      img: "https://ictv.1cdn.vn/2024/11/22/bai-6_ung-dung-tri-tue-nhan-tao-trong-chuyen-doi-so-nganh-y-te.jpeg",
       title: "Theo dõi sức khỏe",
-      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng…"
+      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng… Ứng dụng giúp bạn kiểm soát và phát hiện sớm các dấu hiệu bất thường.",
+      color: "#679be2"
     },
     {
       img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
       title: "Trợ lý AI tư vấn sức khỏe",
-      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người."
+      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người. AI đồng hành cùng bạn xây dựng lối sống lành mạnh, khoa học.",
+      color: "#4fc3c9"
     },
     {
       img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
       title: "Phân tích sức khoẻ qua khuôn mặt",
-      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng."
+      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng. Phân tích các chỉ số sinh học giúp bạn hiểu rõ hơn về sức khỏe bản thân.",
+      color: "#b48ecb"
     },
     {
       img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
       title: "Smart Ring",
-      desc: "Thiết bị đeo thông minh giúp theo  dõi sức khỏe 24/7."
+      desc: "Thiết bị đeo thông minh giúp theo dõi sức khỏe 24/7. Dữ liệu được đồng bộ liên tục, hỗ trợ bạn chăm sóc sức khỏe chủ động mọi lúc mọi nơi.",
+      color: "#f7b267"
+    },
+    {
+      img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
+      title: "Trợ lý AI tư vấn sức khỏe",
+      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người. AI đồng hành cùng bạn xây dựng lối sống lành mạnh, khoa học.",
+      color: "#4fc3c9"
+    },
+    {
+      img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
+      title: "Phân tích sức khoẻ qua khuôn mặt",
+      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng. Phân tích các chỉ số sinh học giúp bạn hiểu rõ hơn về sức khỏe bản thân.",
+      color: "#b48ecb"
+    },
+    {
+      img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
+      title: "Smart Ring",
+      desc: "Thiết bị đeo thông minh giúp theo dõi sức khỏe 24/7. Dữ liệu được đồng bộ liên tục, hỗ trợ bạn chăm sóc sức khỏe chủ động mọi lúc mọi nơi.",
+      color: "#f7b267"
     },
   ];
 
-  const cardsPerPage = React.useMemo(() => {
-    if (!listRef.current) return 1;
-    const ulWidth = listRef.current.offsetWidth;
-    const cardWidth = 320 + 48;
-    return Math.max(1, Math.floor(ulWidth / cardWidth));
-  }, [listRef.current?.offsetWidth]);
+  // Luôn hiển thị 3 card, card giữa là lớn nhất
+  const cardsPerPage = 3;
+
+  // Số trang (dot) = số lần scroll hợp lý
+  const totalPages = items.length > cardsPerPage ? items.length - cardsPerPage + 1 : 1;
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
-    const totalPages = Math.ceil(items.length / cardsPerPage);
-    // Reset currentIndex nếu out-of-range
-    if (currentIndex >= totalPages) setCurrentIndex(0);
-    else {
-      timeout = setTimeout(() => {
-        if (!listRef.current) return;
-        let nextIndex = (currentIndex + 1) % totalPages;
-        const ul = listRef.current;
-        const card = ul.querySelector('.detail-app-card');
-        if (!card) return;
-        const cardWidth = card.clientWidth + 48;
-        ul.scrollTo({
-          left: cardWidth * nextIndex,
-          behavior: "smooth"
-        });
-        setCurrentIndex(nextIndex);
-      }, 2500);
-    }
+    // Tự động scroll từng card một
+    timeout = setTimeout(() => {
+      if (!listRef.current) return;
+      let nextIndex = (currentIndex + 1) % totalPages;
+      const ul = listRef.current;
+      const card = ul.querySelector('.card-infor');
+      if (!card) return;
+      const cardWidth = card.clientWidth + 48;
+      ul.scrollTo({
+        left: cardWidth * nextIndex,
+        behavior: "smooth"
+      });
+      setCurrentIndex(nextIndex);
+    }, 2500);
     return () => clearTimeout(timeout);
-  }, [currentIndex, items.length, cardsPerPage]);
+  }, [currentIndex, totalPages]);
 
   const handleScroll = () => {
     if (!listRef.current) return;
     const ul = listRef.current;
-    const card = ul.querySelector('.detail-app-card');
+    const card = ul.querySelector('.card-infor');
     if (!card) return;
     const cardWidth = card.clientWidth + 48;
     const index = Math.round(ul.scrollLeft / cardWidth);
-    setCurrentIndex(index);
+    setCurrentIndex(Math.min(index, totalPages - 1));
   };
 
-  // Số trang (dot)
-  const totalPages = Math.ceil(items.length / cardsPerPage);
 
-  // Click dot để scroll tới trang tương ứng
-  const handleDotClick = (pageIdx: number) => {
+  // Click dot để scroll tới card tương ứng
+  const handleDotClick = (dotIdx: number) => {
     if (!listRef.current) return;
     const ul = listRef.current;
-    const card = ul.querySelector('.detail-app-card');
+    const card = ul.querySelector('.card-infor');
     if (!card) return;
     const cardWidth = card.clientWidth + 48;
     ul.scrollTo({
-      left: cardWidth * pageIdx,
+      left: cardWidth * dotIdx,
       behavior: "smooth"
     });
-    setCurrentIndex(pageIdx);
+    setCurrentIndex(dotIdx);
   };
   return (
     <div style={{ width: "90%", margin: "0 auto" }}>
       <ul
-        className="carousel-list"
+        className={`carousel-list${currentIndex === 0 ? ' no-padding-left' : ''}`}
         ref={listRef}
         onScroll={handleScroll}
       >
-        {items.map((item, i) => (
-          <li key={i}>
-            <div className="detail-app-card">
-              <img className="detail-app-card-img" src={item.img} alt={item.title} />
-              <h3 className="detail-app-card-title">{item.title}</h3>
-              <p className="detail-app-card-desc">{item.desc}</p>
-            </div>
-          </li>
-        ))}
+        {items.map((item, i) => {
+          let isMobile = false;
+          if (typeof window !== 'undefined') {
+            isMobile = window.innerWidth <= 600;
+          }
+          // Desktop: card ở giữa (index = currentIndex + 1) là active
+          // Mobile: card ở vị trí currentIndex là active
+          let isActive = false;
+          if (isMobile) {
+            isActive = i === currentIndex;
+            if(currentIndex === 4)
+            {
+              isActive = i === currentIndex + 1;
+            }
+          } else {
+            isActive = i === currentIndex + 1;
+          }
+          return (
+            <li key={i} className={isActive ? 'active' : ''}>
+              <CardInfor
+                img={item.img}
+                title={item.title}
+                desc={item.desc}
+                color={item.color}
+              />
+            </li>
+          );
+        })}
       </ul>
 
       <div className="scroll-dots">
@@ -183,6 +222,42 @@ const DetailApp = () => {
     </div>
   );
 }
+
+
+type CardInforProps = {
+  img: string;
+  title: string;
+  desc: string;
+  color: string;
+};
+
+const CardInfor = ({ img, title, desc, color }: CardInforProps) => {
+  return (
+    <div
+      className="card-infor"
+      style={{ background: `linear-gradient(135deg, ${color} 0%, #fff 70%)` }}
+    >
+      <div className="card-infor-img-wrap">
+        <img
+          className="card-infor-img"
+          src={img}
+          alt={title}
+        />
+      </div>
+      <div className="card-infor-quote">
+        <span className="card-infor-quote-text">
+          {desc}
+        </span>
+      </div>
+      <hr className="card-infor-divider" />
+      <div className="card-infor-name">{title}</div>
+      <div className="card-infor-dots">
+        <span className="dot active"></span>
+        <span className="dot"></span>
+      </div>
+    </div>
+  );
+};
 
 export default IntroductionBlock;
 
