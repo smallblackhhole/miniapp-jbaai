@@ -1,6 +1,6 @@
 
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/IntroductionBlock.css';
 import heathyCareImg from '../assets/img/heathy-care.png';
 import InstallationGuideBlock from './InstallationGuideBlock';
@@ -49,32 +49,8 @@ const AboutUs = () => {
 
 const DetailApp = () => {
   const listRef = useRef<HTMLUListElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+
   const items = [
-    {
-      img: "https://ictv.1cdn.vn/2024/11/22/bai-6_ung-dung-tri-tue-nhan-tao-trong-chuyen-doi-so-nganh-y-te.jpeg",
-      title: "Theo dõi sức khỏe",
-      desc: "Ghi nhận các chỉ số sức khỏe như nhịp tim, huyết áp, lượng đường, cân nặng… Ứng dụng giúp bạn kiểm soát và phát hiện sớm các dấu hiệu bất thường.",
-      color: "#679be2"
-    },
-    {
-      img: "https://hedima.vn/journey/wp-content/uploads/2021/05/3-1.jpg",
-      title: "Trợ lý AI tư vấn sức khỏe",
-      desc: "Đưa ra gợi ý chế độ ăn uống, tập luyện và thói quen sinh hoạt phù hợp với từng người. AI đồng hành cùng bạn xây dựng lối sống lành mạnh, khoa học.",
-      color: "#4fc3c9"
-    },
-    {
-      img: "https://cdn.prod.website-files.com/680280c18df8e68403545b30/680280c18df8e68403545d9a_%231%20User%20experience.webp",
-      title: "Phân tích sức khoẻ qua khuôn mặt",
-      desc: "Công nghệ nhận diện khuôn mặt để đánh giá tình trạng sức khỏe của người dùng. Phân tích các chỉ số sinh học giúp bạn hiểu rõ hơn về sức khỏe bản thân.",
-      color: "#b48ecb"
-    },
-    {
-      img: "https://hk.momax.net/cdn/shop/files/Momax_1-SenseActiveMulti-FunctionalHealthTrackingSmartRing_SG1S_TopLeft.239_v2.webp?v=1753027359&width=1500",
-      title: "Smart Ring",
-      desc: "Thiết bị đeo thông minh giúp theo dõi sức khỏe 24/7. Dữ liệu được đồng bộ liên tục, hỗ trợ bạn chăm sóc sức khỏe chủ động mọi lúc mọi nơi.",
-      color: "#f7b267"
-    },
     {
       img: "https://ictv.1cdn.vn/2024/11/22/bai-6_ung-dung-tri-tue-nhan-tao-trong-chuyen-doi-so-nganh-y-te.jpeg",
       title: "Theo dõi sức khỏe",
@@ -101,65 +77,77 @@ const DetailApp = () => {
     },
   ];
 
-  const cardsPerPage = 3;
 
-  const totalPages = items.length > cardsPerPage ? items.length - cardsPerPage + 1 : 1;
+  const loopItems = [...items, ...items];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  React.useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    // Scroll từng card 
-    timeout = setTimeout(() => {
-      if (!listRef.current) return;
-      let nextIndex = (currentIndex + 1) % totalPages;
+  const getScrollOffset = (cards: NodeListOf<HTMLElement>, idx: number) => {
+    if (cards.length === 0) return 0;
+    const cardWidth = cards[0].clientWidth;
+    const gap = (cards[1]?.offsetLeft - cards[0]?.offsetLeft) || 48;
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
+    if (isDesktop && listRef.current) {
       const ul = listRef.current;
-      const card = ul.querySelector('.card-infor');
-      if (!card) return;
-      const cardWidth = card.clientWidth + 48;
-      ul.scrollTo({
-        left: cardWidth * nextIndex,
-        behavior: "smooth"
-      });
-      setCurrentIndex(nextIndex);
-    }, 2500);
-    return () => clearTimeout(timeout);
-  }, [currentIndex, totalPages]);
-
-  const handleScroll = () => {
-    if (!listRef.current) return;
-    const ul = listRef.current;
-    const card = ul.querySelector('.card-infor');
-    if (!card) return;
-    const cardWidth = card.clientWidth + 48;
-    const index = Math.round(ul.scrollLeft / cardWidth);
-    setCurrentIndex(Math.min(index, totalPages - 1));
+      const containerWidth = ul.clientWidth;
+      return idx * gap - (containerWidth - cardWidth) / 2;
+    } else {
+      return idx * gap;
+    }
   };
 
-
-  // Click dot để scroll tới card tương ứng
+  // Click dot để nhảy đến card tương ứng
   const handleDotClick = (dotIdx: number) => {
     if (!listRef.current) return;
     const ul = listRef.current;
-    const card = ul.querySelector('.card-infor');
-    if (!card) return;
-    const cardWidth = card.clientWidth + 48;
+    const cards = ul.querySelectorAll(".card-infor") as NodeListOf<HTMLElement>;
+    if (cards.length < 1) return;
+    const offset = getScrollOffset(cards, dotIdx);
     ul.scrollTo({
-      left: cardWidth * dotIdx,
+      left: offset,
       behavior: "smooth"
     });
     setCurrentIndex(dotIdx);
   };
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    timeout = setTimeout(() => {
+      if (!listRef.current) return;
+      const ul = listRef.current;
+      const cards = ul.querySelectorAll(".card-infor") as NodeListOf<HTMLElement>;
+      if (cards.length < 2) return;
+      const nextIndex = currentIndex + 1;
+      const offset = getScrollOffset(cards, nextIndex);
+      ul.scrollTo({ left: offset, behavior: "smooth" });
+      setCurrentIndex(nextIndex);
+      if (nextIndex === items.length) {
+        setTimeout(() => {
+          const prev = ul.style.scrollBehavior;
+          ul.style.scrollBehavior = "auto";
+          const resetOffset = getScrollOffset(cards, 0);
+          ul.scrollTo({ left: resetOffset, behavior: "auto" });
+          ul.style.scrollBehavior = prev || "smooth";
+          setCurrentIndex(0);
+        }, 500);
+      }
+    }, 2500);
+    return () => clearTimeout(timeout);
+  }, [currentIndex, items.length]);
+
   return (
     <div style={{ width: "90%", margin: "0 auto" }}>
       <ul
-        className={`carousel-list${currentIndex === 0 ? ' no-padding-left' : ''}`}
+        className="carousel-list"
         ref={listRef}
-        onScroll={handleScroll}
+        style={{ display: "flex", overflow: "hidden", scrollBehavior: "smooth" }}
       >
-        {items.map((item, i) => {
-          let isActive = false;
-          isActive = i === currentIndex + 1;
+        {loopItems.map((item, i) => {
+          // Chỉ phóng to nếu là card active và không phải card đầu tiên (index 0)
+          const isActive = i % items.length === currentIndex % items.length;
+          const isFirst = (i % items.length) === 0;
+          const liClass = isActive && !isFirst ? "active" : "";
           return (
-            <li key={i} className={isActive ? 'active' : ''}>
+            <li key={i} className={liClass}>
               <CardInfor
                 img={item.img}
                 title={item.title}
@@ -170,20 +158,19 @@ const DetailApp = () => {
           );
         })}
       </ul>
-
       <div className="scroll-dots">
-        {Array.from({ length: totalPages }).map((_, i) => (
+        {items.map((_, i) => (
           <span
             key={i}
-            className={`dot ${i === currentIndex ? "active" : ""}`}
+            className={`dot ${i === currentIndex % items.length ? "active" : ""}`}
             onClick={() => handleDotClick(i)}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           ></span>
         ))}
       </div>
     </div>
   );
-}
+};
 
 
 type CardInforProps = {
