@@ -28,19 +28,6 @@
   margin-bottom: 20px;
 }
 
-.hero-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-}
-
-.hero-tagline {
-  font-size: 1.2rem;
-  color: #0066b3;
-  margin-top: 10px;
-}
-
 .hero-description {
   font-size: 1rem;
   color: #666;
@@ -82,7 +69,7 @@
   padding: 10px;
   margin-bottom: 40px;
   /* Giúp cuộn mượt hơn trên mobile */
-  scroll-snap-type: x mandatory; 
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -125,8 +112,8 @@
 }
 
 .price-unit {
-    font-size: 1.5rem;
-    font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .duration-per-month {
@@ -146,7 +133,6 @@
 .duration-features li {
   margin-bottom: 10px;
 }
-
 
 /* --- Nút chọn gói chính --- */
 .package-selector {
@@ -202,44 +188,43 @@
   border-radius: 12px;
 }
 
-
 /* --- Headings --- */
 .head-title {
-    animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 30px;
-    font-weight: 800;
-    color: #15156e;
-    text-align: center;
-    letter-spacing: 0.02em;
-    position: relative;
-    transition: color 0.2s;
-    padding-top: 70px;
+  font-family: "Montserrat", sans-serif;
+  animation: slideInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 30px;
+  font-weight: 800;
+  color: #15156e;
+  text-align: center;
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color 0.2s;
+  padding-top: 40px;
 }
 
 .head-title::after {
-    content: "";
-    display: block;
-    margin: 10px auto 0 auto;
-    width: 90px;
-    height: 5px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, #2a57ca 0%, #a3dbe8 100%);
-    opacity: 0.7;
-    transition: width 0.3s, background 0.3s;
+  content: "";
+  display: block;
+  margin: 5px auto 0 auto;
+  width: 90px;
+  height: 3px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #2a57ca 0%, #a3dbe8 100%);
+  opacity: 0.7;
 }
 
 @media (max-width: 950px) {
-    .head-title {
-        font-size: 1.6rem;
-        padding: 0 8px;
-        text-align: center;
-        padding-top: 70px;
-    }
+  .head-title {
+    font-size: 1.6rem;
+    padding: 0 8px;
+    text-align: center;
+    padding-top: 15px;
   }
+}
 
 @media (max-width: 600px) {
-    .head-title {
-        font-size: 1.2rem;
-         padding-top: 70px;
-    }
+  .head-title {
+    font-size: 1.2rem;
+    padding-top: 15px;
   }
+}

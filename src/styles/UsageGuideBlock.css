@@ -1,59 +1,85 @@
-@media (max-width: 900px) {
-  .usage-guide-video-wrapper {
-    max-width: 100vw;
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-  .usage-guide-quote {
-    font-size: 15px;
-    max-width: 98vw;
-    margin-top: 16px;
-    padding: 0 2vw;
-  }
-}
-
-/* Installation Guide Block Styles */
-.usage-guide-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
+/* Khung ôm player, canh giữa và đổ bóng nhẹ */
 .usage-guide-video-wrapper {
-  width: 90%;
-  max-width: 800px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
-  background: #fff;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
-.usage-guide-video {
+
+/* Giữ tỉ lệ 16:9, bo góc, overflow hidden */
+.video-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  max-width: 900px; /* tăng/giảm tùy ý */
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
   background: #000;
+}
+
+/* Poster là một nút (để focus/keyboard accessibility), phủ kín khung */
+.video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nút play tròn ở giữa */
+.play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.12s ease, background 0.2s ease;
 }
-.usage-guide-iframe {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  border: none;
+.video-poster:hover .play-btn {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translate(-50%, -50%) scale(1.04);
 }
-.usage-guide-quote {
-  margin-top: 16px;
-  text-align: center;
-  color: #222;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+.video-poster:active .play-btn {
+  transform: translate(-50%, -50%) scale(0.98);
 }
 
+/* Iframe phủ kín khi phát */
+.video-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #000;
+}
+
+/* Responsive nhỏ hơn */
+@media (max-width: 420px) {
+  .video-wrapper {
+    border-radius: 14px;
+  }
+  .play-btn {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+  }
+}
